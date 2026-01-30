@@ -55,8 +55,9 @@ footer {
 }
 
 .home-memes img {
-  width: 250px;              /* 3 ảnh cùng kích thước */
-  height: 250px;
-  object-fit: cover;         /* không méo ảnh */
+  width: 260px;
+  height: 260px;
+  object-fit: cover;      /* QUAN TRỌNG: cắt ảnh cho đều */
+  object-position: center;
   border-radius: 12px;
 }
