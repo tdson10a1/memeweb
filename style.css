@@ -42,3 +42,21 @@ footer {
   padding: 10px;
   background: #ddd;
 }
+.center {
+  text-align: center;
+}
+
+/* Meme ở trang Home */
+.home-memes {
+  display: flex;
+  justify-content: center;   /* căn giữa ngang */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.home-memes img {
+  width: 250px;              /* 3 ảnh cùng kích thước */
+  height: 250px;
+  object-fit: cover;         /* không méo ảnh */
+  border-radius: 12px;
+}
