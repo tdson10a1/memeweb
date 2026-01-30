@@ -1,0 +1,44 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+header {
+  background: #ff9800;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background: #333;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  padding: 14px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: #555;
+}
+
+main {
+  padding: 20px;
+}
+
+.gallery img {
+  width: 250px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #ddd;
+}
