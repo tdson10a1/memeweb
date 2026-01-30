@@ -62,25 +62,28 @@ footer {
   border-radius: 12px;
 }
 
-/* Meme gallery */
+/* GRID */
 .meme-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
-  justify-content: center;   /* căn giữa toàn bộ grid */
+  justify-content: center;
   gap: 20px;
 }
-.meme-gallery img {
+
+/* Ô chứa meme – CỐ ĐỊNH */
+.meme-item {
   width: 240px;
   height: 240px;
-  object-fit: cover;        /* cắt ảnh cho đều */
-  object-position: center;
+  overflow: hidden;        /* CẮT ẢNH */
   border-radius: 12px;
-  display: block;
-  background-color: #eee;
+  background: #eee;
 }
 
-.meme-gallery img:hover {
-  transform: scale(1.06);
-  transition: 0.3s;
-  cursor: pointer;
+/* ẢNH / GIF */
+.meme-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* CHÌA KHÓA */
+  object-position: center;
+  display: block;
 }
