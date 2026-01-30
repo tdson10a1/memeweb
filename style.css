@@ -78,3 +78,19 @@ footer {
   object-position: center;
   border-radius: 12px;
 }
+/* Grid ảnh dùng chung */
+.meme-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;       /* quan trọng: xuống dòng cho nhiều ảnh */
+  margin-top: 30px;
+}
+
+.meme-grid img {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+}
