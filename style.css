@@ -65,17 +65,18 @@ footer {
 /* Meme gallery */
 .meme-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, 240px);
+  justify-content: center;   /* căn giữa toàn bộ grid */
   gap: 20px;
-  padding: 20px;
 }
-
 .meme-gallery img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+  width: 240px;
+  height: 240px;
+  object-fit: cover;        /* cắt ảnh cho đều */
+  object-position: center;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  background-color: #eee;
 }
 
 .meme-gallery img:hover {
