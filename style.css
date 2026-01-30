@@ -31,44 +31,12 @@ main {
   padding: 20px;
 }
 
-.gallery img {
-  width: 250px;
-  margin: 10px;
-  border-radius: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background: #ddd;
-}
-.center {
-  text-align: center;
-}
-
-/* Meme ở trang Home */
-.home-memes {
-  display: flex;
-  justify-content: center;   /* căn giữa ngang */
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.home-memes img {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;      /* QUAN TRỌNG: cắt ảnh cho đều */
-  object-position: center;
-  border-radius: 12px;
-}
-
-/* Meme ở trang Home + Memes */
 .home-memes {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-top: 20px;
-  flex-wrap: wrap;   /* ⭐ QUAN TRỌNG: cho xuống hàng */
+  flex-wrap: wrap;   /* bắt buộc */
 }
 
 .home-memes img {
@@ -78,20 +46,3 @@ footer {
   object-position: center;
   border-radius: 12px;
 }
-/* Grid ảnh dùng chung */
-.meme-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;       /* quan trọng: xuống dòng cho nhiều ảnh */
-  margin-top: 30px;
-}
-
-.meme-grid img {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 12px;
-}
- 
