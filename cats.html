@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <!-- Menu (giống các trang khác) -->
+  <!-- Menu -->
   <nav>
     <a href="index.html">Home</a>
     <a href="memes.html">Memes</a>
@@ -19,28 +19,24 @@
   <h1 style="text-align:center;">🐱 Cat Collection</h1>
 
   <main>
-  <h2 class="page-title">🐱 Cat Memes</h2>
+    <h2 class="page-title">🐱 Cat Memes</h2>
 
-  <div class="home-memes">
-  <img src="cat/cat1.gif" alt="Cute cat meme number 1">
-  <img src="cat/cat2.gif" alt="Cute cat meme number 2">
-  <img src="cat/cat3.gif" alt="Cute cat meme number 3">
-  <img src="cat/cat4.gif" alt="Cute cat meme number 4">
-  <img src="cat/cat5.gif" alt="Cute cat meme number 5">
-  <img src="cat/cat6.gif" alt="Cute cat meme number 6">
-  <img src="cat/cat7.gif" alt="Cute cat meme number 7">
-  <img src="cat/cat8.gif" alt="Cute cat meme number 8">
-  <img src="cat/cat9.gif" alt="Cute cat meme number 9">
-  <img src="cat/cat10.gif" alt="Cute cat meme number 10">
-  <img src="cat/cat11.gif" alt="Cute cat meme number 11">
-  <img src="cat/cat12.gif" alt="Cute cat meme number 12">
-  <img src="cat/cat13.gif" alt="Cute cat meme number 13">
-  <img src="cat/cat14.gif" alt="Cute cat meme number 14">
-  <img src="cat/cat15.gif" alt="Cute cat meme number 15">
-  <img src="cat/cat16.gif" alt="Cute cat meme number 16">
-  <img src="cat/cat17.gif" alt="Cute cat meme number 17">
-</div>
-</main>
+    <!-- Gallery -->
+    <div class="home-memes" id="cat-gallery"></div>
+  </main>
+
+  <!-- Auto load 133 cat GIFs -->
+  <script>
+    const gallery = document.getElementById("cat-gallery");
+
+    for (let i = 1; i <= 133; i++) {
+      const img = document.createElement("img");
+      img.src = `cat/cat${i}.gif`;
+      img.alt = `Cute cat meme number ${i}`;
+      img.loading = "lazy"; // load mượt hơn
+      gallery.appendChild(img);
+    }
+  </script>
 
 </body>
 </html>
