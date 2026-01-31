@@ -7,6 +7,7 @@
 </head>
 <body>
 
+  <!-- Menu -->
   <nav>
     <a href="index.html">Home</a>
     <a href="memes.html">Memes</a>
@@ -16,21 +17,24 @@
   </nav>
 
   <main>
-   <h2 class="page-title">🐶 Dog Memes</h2>
+    <h2 class="page-title">🐶 Dog Memes</h2>
 
-   <div class="home-memes">
-  <img src="dog/d1.gif" alt="dog1">
-  <img src="dog/d2.png" alt="dog2">
-  <img src="dog/d3.jpg" alt="dog3">
-  <img src="dog/d4.jpg" alt="dog4">
-  <img src="dog/d5.jpg" alt="dog5">
-  <img src="dog/d6.gif" alt="dog6">
-  <img src="dog/d7.gif" alt="dog7">
-  <img src="dog/d8.jpg" alt="dog8">
-  <img src="dog/d9.gif" alt="dog9">
-  <img src="dog/d10.gif" alt="dog10">
-</div>
+    <!-- Gallery -->
+    <div class="home-memes" id="dog-gallery"></div>
   </main>
+
+  <!-- Auto load 38 dog GIFs -->
+  <script>
+    const gallery = document.getElementById("dog-gallery");
+
+    for (let i = 1; i <= 38; i++) {
+      const img = document.createElement("img");
+      img.src = `dog/d${i}.gif`;
+      img.alt = `Funny dog meme number ${i}`;
+      img.loading = "lazy";
+      gallery.appendChild(img);
+    }
+  </script>
 
 </body>
 </html>
