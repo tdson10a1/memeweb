@@ -7,63 +7,72 @@
 </head>
 <body>
 
-<header><h1>🔥 Memes</h1></header>
+<header>
+  <h1>🔥 Memes</h1>
+</header>
 
 <nav>
   <a href="index.html">Home</a>
   <a href="memes.html">Memes</a>
   <a href="cats.html">Cats</a>
- 
   <a href="dogs.html">Dogs</a>
 </nav>
 
 <main>
   <h2 class="page-title">🔥 Meme Collection</h2>
-  
- <div class="home-memes">
 
-  <div class="meme-item">
-    <img src="meme/me1.gif" alt="Funny meme number 1">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me2.gif" alt="Funny meme number 2">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me3.gif" alt="Funny meme number 3">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me4.gif" alt="Funny meme number 4">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me5.gif" alt="Funny meme number 5">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me6.gif" alt="Funny meme number 6">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me7.gif" alt="Funny meme number 7">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me8.gif" alt="Funny meme number 8">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me9.gif" alt="Funny meme number 9">
-  </div>
-
-  <div class="meme-item">
-    <img src="meme/me10.gif" alt="Funny animated meme number 10">
-  </div>
-
-</div>
+  <!-- Gallery -->
+  <div class="home-memes" id="meme-gallery"></div>
 </main>
+
+<!-- ================= RANDOM MEME SCRIPT ================= -->
+<script>
+  const gallery = document.getElementById("meme-gallery");
+
+  /* ===== CẤU HÌNH – CHỈ SỬA Ở ĐÂY ===== */
+  const CONFIG = {
+    totalShow: 252,  // 👉 số ảnh hiển thị
+    folder: "meme",
+    prefix: "me",
+    count: 252       // 👉 tổng số meme bạn có
+  };
+
+  // Các định dạng ảnh hỗ trợ
+  const extensions = ["gif", "jpg", "jpeg", "png", "webp"];
+
+  /* ===== LOGIC – KHÔNG CẦN SỬA ===== */
+  let images = [];
+
+  for (let i = 1; i <= CONFIG.count; i++) {
+    extensions.forEach(ext => {
+      images.push(`${CONFIG.folder}/${CONFIG.prefix}${i}.${ext}`);
+    });
+  }
+
+  // Random
+  images.sort(() => Math.random() - 0.5);
+
+  let loaded = 0;
+
+  images.forEach(src => {
+    if (loaded >= CONFIG.totalShow) return;
+
+    const img = new Image();
+    img.src = src;
+    img.loading = "lazy";
+    img.alt = "Funny meme";
+
+    img.onload = () => {
+      if (loaded < CONFIG.totalShow) {
+        gallery.appendChild(img);
+        loaded++;
+      }
+    };
+
+    img.onerror = () => {}; // bỏ qua file không tồn tại
+  });
+</script>
+<!-- ===================================================== -->
 
 </body>
 </html>
