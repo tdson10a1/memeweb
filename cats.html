@@ -7,36 +7,71 @@
 </head>
 <body>
 
-  <!-- Menu -->
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="memes.html">Memes</a>
-    <a href="cats.html">Cats</a>
-   
-    <a href="dogs.html">Dogs</a>
-  </nav>
+<!-- Menu -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="memes.html">Memes</a>
+  <a href="cats.html">Cats</a>
+  <a href="dogs.html">Dogs</a>
+</nav>
 
-  <h1 style="text-align:center;">🐱 Cat Collection</h1>
+<h1 style="text-align:center;">🐱 Cat Collection</h1>
 
-  <main>
-    <h2 class="page-title">🐱 Cat Memes</h2>
+<main>
+  <h2 class="page-title">🐱 Cat Memes</h2>
 
-    <!-- Gallery -->
-    <div class="home-memes" id="cat-gallery"></div>
-  </main>
+  <!-- Gallery -->
+  <div class="home-memes" id="cat-gallery"></div>
+</main>
 
-  <!-- Auto load 133 cat GIFs -->
-  <script>
-    const gallery = document.getElementById("cat-gallery");
+<!-- ================= RANDOM CAT SCRIPT ================= -->
+<script>
+  const gallery = document.getElementById("cat-gallery");
 
-    for (let i = 1; i <= 133; i++) {
-      const img = document.createElement("img");
-      img.src = `cat/cat${i}.gif`;
-      img.alt = `Cute cat meme number ${i}`;
-      img.loading = "lazy"; // load mượt hơn
-      gallery.appendChild(img);
-    }
-  </script>
+  /* ===== CẤU HÌNH – CHỈ SỬA Ở ĐÂY ===== */
+  const CONFIG = {
+    totalShow: 133,   // 👉 số ảnh hiển thị (đổi thoải mái)
+    folder: "cat",
+    prefix: "cat",
+    count: 133        // 👉 tổng số cat bạn có
+  };
+
+  // Các định dạng ảnh hỗ trợ
+  const extensions = ["gif", "jpg", "jpeg", "png", "webp"];
+
+  /* ===== LOGIC – KHÔNG CẦN SỬA ===== */
+  let images = [];
+
+  for (let i = 1; i <= CONFIG.count; i++) {
+    extensions.forEach(ext => {
+      images.push(`${CONFIG.folder}/${CONFIG.prefix}${i}.${ext}`);
+    });
+  }
+
+  // Random
+  images.sort(() => Math.random() - 0.5);
+
+  let loaded = 0;
+
+  images.forEach(src => {
+    if (loaded >= CONFIG.totalShow) return;
+
+    const img = new Image();
+    img.src = src;
+    img.loading = "lazy";
+    img.alt = "Cute cat meme";
+
+    img.onload = () => {
+      if (loaded < CONFIG.totalShow) {
+        gallery.appendChild(img);
+        loaded++;
+      }
+    };
+
+    img.onerror = () => {}; // bỏ qua file không tồn tại
+  });
+</script>
+<!-- ===================================================== -->
 
 </body>
 </html>
