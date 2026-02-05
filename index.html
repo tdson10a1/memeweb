@@ -22,21 +22,89 @@
 <main>
   <h2 class="page-title">📌 About this website</h2>
   <p class="center-text">
-  This website is created to share funny memes about life, cats and dogs.
+    This website is created to share funny memes about life, cats and dogs.
   </p>
+
   <h2 class="page-title">🔥 Featured Memes</h2>
-  
-  <div class="home-memes">
-    <img src="images/im1.gif" alt="meme 1">
-    <img src="images/im2.jpg" alt="meme 2">
-    <img src="images/m3.gif" alt="meme 3">
-  </div>
+
+  <!-- Random images will be loaded here -->
+  <div class="home-memes" id="random-gallery"></div>
 </main>
 
 <footer class="center-text">
   <p>© 2026 Meme World</p>
   <p>Author: Trần Đức Sơn</p>
 </footer>
+
+<!-- ================= RANDOM IMAGE SCRIPT ================= -->
+<script>
+  const gallery = document.getElementById("random-gallery");
+
+  /* ========= CẤU HÌNH – CHỈ SỬA Ở ĐÂY ========= */
+  const CONFIG = {
+    totalShow: 50, // 👉 số ảnh hiển thị trên Home
+
+    cat: {
+      folder: "cat",
+      prefix: "cat",
+      count: 133   // 👉 đổi nếu upload thêm cat
+    },
+
+    meme: {
+      folder: "meme",
+      prefix: "me",
+      count: 252   // 👉 đổi nếu upload thêm meme
+    },
+
+    dog: {
+      folder: "dog",
+      prefix: "d",
+      count: 38    // 👉 đổi nếu upload thêm dog
+    }
+  };
+
+  // Các định dạng ảnh hỗ trợ
+  const extensions = ["gif", "jpg", "jpeg", "png", "webp"];
+
+  /* ========= LOGIC – KHÔNG CẦN SỬA ========= */
+  let images = [];
+
+  function collectImages(type) {
+    for (let i = 1; i <= type.count; i++) {
+      extensions.forEach(ext => {
+        images.push(`${type.folder}/${type.prefix}${i}.${ext}`);
+      });
+    }
+  }
+
+  collectImages(CONFIG.cat);
+  collectImages(CONFIG.meme);
+  collectImages(CONFIG.dog);
+
+  // Trộn ngẫu nhiên
+  images.sort(() => Math.random() - 0.5);
+
+  let loaded = 0;
+
+  images.forEach(src => {
+    if (loaded >= CONFIG.totalShow) return;
+
+    const img = new Image();
+    img.src = src;
+    img.loading = "lazy";
+    img.alt = "Random meme image";
+
+    img.onload = () => {
+      if (loaded < CONFIG.totalShow) {
+        gallery.appendChild(img);
+        loaded++;
+      }
+    };
+
+    img.onerror = () => {}; // bỏ qua file không tồn tại
+  });
+</script>
+<!-- ======================================================= -->
 
 </body>
 </html>
